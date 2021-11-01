@@ -5,5 +5,5 @@
 
 First of All, you need to able to apply go lang test command such as at the bottom
 ```go
-go test -v ../test_ofTerraformModules
+go test -v ./test_ofTerraformModules
 ```
