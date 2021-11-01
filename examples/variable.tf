@@ -16,16 +16,19 @@ variable "table_name" {
 variable "main_vpc_cidr" {
   description = "The CIDR of the main VPC"
   type        = string
+  default = "10.10.0.0/16"
 }
 
 variable "public_subnet_cidr" {
   description = "The CIDR of public subnet"
   type        = string
+  default = "10.10.2.0/24"
 }
 
 variable "private_subnet_cidr" {
   description = "The CIDR of the private subnet"
   type        = string
+  default = "10.10.1.0/24"
 }
 
 variable "tag_name" {

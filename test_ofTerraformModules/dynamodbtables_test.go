@@ -39,7 +39,7 @@ func Test_ShouldBeCreateDynamoDBTable(t *testing.T) {
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 			"table_name": expectedTableName,
-			"region":     awsRegion,
+			"aws_region": awsRegion,
 		},
 	})
 
