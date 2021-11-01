@@ -1,0 +1,8 @@
+# terraform config files
+*.terraform
+*.terraform.*
+
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
