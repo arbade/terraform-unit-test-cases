@@ -13,7 +13,7 @@ import (
 )
 
 // An example of how to test the Terraform module in examples/terraform-aws-dynamodb-example using Terratest.
-func TestTerraformAwsDynamoDBExample(t *testing.T) {
+func Test_ShouldBeCreateDynamoDBTable(t *testing.T) {
 	t.Parallel()
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
