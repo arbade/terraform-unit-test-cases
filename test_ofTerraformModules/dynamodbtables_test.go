@@ -17,7 +17,33 @@ func Test_ShouldBeCreateDynamoDBTable(t *testing.T) {
 	t.Parallel()
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
-	awsRegion := aws.GetRandomStableRegion(t, nil, nil)
+
+	//awsRegion := aws.GetRandomStableRegion(t, nil, nil)
+
+	var defaultRegion = []string{
+		"eu-central-1", //default region
+	}
+
+	var restrictedRegionsList = []string{
+		"us-east-1",
+		"us-east-2",      // Launched 2016
+		"us-west-1",      // Launched 2009
+		"us-west-2",      // Launched 2011
+		"ca-central-1",   // Launched 2016
+		"sa-east-1",      // Launched 2011
+		"eu-west-1",      // Launched 2007
+		"eu-west-2",      // Launched 2016
+		"eu-west-3",      // Launched 2017
+		"ap-southeast-1", // Launched 2010
+		"ap-southeast-2", // Launched 2012
+		"ap-northeast-1", // Launched 2011
+		"ap-northeast-2", // Launched 2016
+		"ap-south-1",     // Launched 2016
+		"eu-north-1",     // Launched 2018
+	}
+	awsRegion := aws.GetRandomStableRegion(t, defaultRegion, restrictedRegionsList)
+
+	//awsRegion := "eu-central-1"
 
 	// Set up expected values to be checked later
 	expectedTableName := fmt.Sprintf("terratest-aws-dynamodb-example-table-%s", random.UniqueId())
@@ -34,7 +60,7 @@ func Test_ShouldBeCreateDynamoDBTable(t *testing.T) {
 	// terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// The path to where our Terraform code is located
-		TerraformDir: "../examples/",
+		TerraformDir: "../examples/dynamodb/",
 
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{

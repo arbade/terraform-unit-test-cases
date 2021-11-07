@@ -7,12 +7,6 @@ variable "aws_region" {
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "table_name" {
-  description = "The name to set for the dynamoDB table."
-  type        = string
-  default     = "terratest-example"
-}
-
 variable "main_vpc_cidr" {
   description = "The CIDR of the main VPC"
   type        = string
